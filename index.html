@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coded Foundation for Technology Development</title>
+    <style>
+        /* Global Styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            scroll-behavior: smooth;
+        }
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        /* Fixed Header with Logo and Menu */
+
+        /* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+    padding: 5px 10px;
+    transition: background 0.3s ease;
+}
+
+nav a:hover {
+    background: #6bc6ff;
+    border-radius: 5px;
+}
+
+.header-button {
+    background: #6bc6ff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.header-button:hover {
+    background: #4fa7d8;
+}
+
+/* Mission and Vision Section */
+#mission-vision {
+    margin-top: 100px; /* Pushes content below the fixed header */
+    padding: 40px 20px;
+    text-align: center;
+    background: #f7f7f7;
+}
+
+#mission-vision .motion-text {
+    margin-bottom: 30px;
+}
+
+#mission-vision h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#mission-vision p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column; /* Stack header items vertically */
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    nav {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    nav a {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+
+    .header-button {
+        font-size: 0.9em;
+        padding: 8px 12px;
+        margin-top: 10px;
+    }
+
+    #mission-vision h2 {
+        font-size: 1.5em;
+    }
+
+    #mission-vision p {
+        font-size: 1em;
+    }
+}
+
+
+        /* Responsive Header */
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the left */
+    }
+    .logo {
+        width: 100%; /* Full width for the logo */
+        justify-content: center; /* Center-align the logo */
+        margin-bottom: 10px; /* Add spacing */
+    }
+    .logo img {
+        height: 40px; /* Smaller logo for mobile */
+    }
+    nav {
+        width: 100%; /* Full width for navigation */
+        display: flex;
+        justify-content: space-evenly; /* Even spacing */
+        flex-wrap: wrap; /* Wrap menu items */
+        gap: 10px; /* Space between links */
+    }
+    nav a {
+        font-size: 0.9em; /* Smaller text size */
+        padding: 8px; /* Reduce padding */
+    }
+    .header-button {
+        width: 100%; /* Full width for the button */
+        text-align: center; /* Center-align the button */
+        margin-top: 10px;
+    }
+}
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 1, 0, 0.1);
+            color: #fff;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        .logo h1 {
+            font-size: 1.5em;
+            margin: 0;
+        }
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1em;
+            padding: 5px 10px;
+            transition: background 0.3s ease;
+        }
+        nav a:hover {
+            background: #6bc6ff;
+            border-radius: 5px;
+        }
+        /* Section Styling */
+        section {
+            margin-top: 80px; /* Adjust to avoid overlap with the fixed header */
+            padding: 40px 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        section p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+        }
+        /* Styling for Subsections */
+        .team, .projects {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .team-member, .project {
+            width: 280px;
+            background: #f7f7f7;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .team-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        /* Donate Section */
+        .donate-section {
+            margin: 40px 0;
+            padding: 20px;
+            background: #222;
+            color: #fff;
+        }
+        .donate-section button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            color: #fff;
+            background: #6bc6ff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .donate-section button:hover {
+            background: #4fa7d8;
+        }
+        .team {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centers the content horizontally */
+    gap: 20px; /* Adds spacing between the team members */
+}
+
+.team-member {
+    width: 280px; /* Ensures consistent sizing */
+    background: #f7f7f7;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.team-member img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+        .more-text {
+    display: none;
+}
+button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: #6bc6ff;
+    text-decoration: underline;
+    font-size: 1em;
+    margin-top: 10px;
+}
+button:hover {
+    color: #4fa7d8;
+}
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #222;
+            color: #fff;
+        }
+
+        .contact-button {
+    background-color: #6bc6ff;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: background 0.3s ease;
+}
+
+.contact-button:hover {
+    background-color: #4fa7d8;
+}
+
+/* Mission and Vision Section */
+#mission-vision {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+#mission-vision h2 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Motion Text Styling */
+.motion-text p {
+    font-size: 1.2em;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.motion-text span {
+    font-weight: bold;
+    color: #6bc6ff;
+}
+
+
+    </style>
+</head>
+<body>
+    <canvas id="backgroundCanvas"></canvas>
+    <!-- Fixed Header -->
+    <header>
+        <div class="logo">
+            <img src="image/Logo.jpg" alt="Coded Foundation Logo">
+            <h1>Coded Foundation</h1>
+        </div>
+        <nav>
+            <a href="#about-us">About Us</a>
+            <a href="#projects">Our Projects</a>
+            <a href="#donate">Donate</a>
+            <a href="mailto:info@codedfoundation.org" class="contact-button">Contact Us</a>
+        </nav>
+    </header>
+
+    <!-- About Us Section -->
+    <section id="mission-vision">
+        <h2>Our Mission & Vision</h2>
+        <div class="motion-text">
+            <p>
+                <span>Mission Statement:</span>
+                <span id="mission-text" class="typing-text"></span>
+            </p>
+            <p>
+                <span>Vision Statement:</span>
+                <span id="vision-text" class="typing-text"></span>
+            </p>
+        </div>
+    </section>
+    
+    
+    <section id="about-us">
+        <h2>About Us</h2>
+        <p>At Coded Foundation for Technology Development, our founding team comprises dedicated technologists, educators, and social activists who believe in the transformative power of technology.</p>
+        <div class="team">
+            <div class="team-member">
+                <img src="image/founder.jpg" alt="Rufai Bello Photo">
+                <h3>Rufai Bello</h3>
+                <p>Founder & CEO</p>
+                <p>
+                    Rufai Bello is a seasoned Data Scientist and AI specialist with expertise in Python programming and software development.
+                    <span class="dots" id="dots1">...</span>
+                    <span class="more-text" id="more1" style="display: none;">
+                        He holds a B.Sc. in Computer Science from Bayero University, Kano, and an M.Sc. in the same field from Kaduna State University. 
+                        As a professional member of Data Science Nigeria and a Fellow of the ClickonKaduna Data Science Fellowship, Rufai has led numerous impactful projects in data science, artificial intelligence, and software development. 
+                        Passionate about technology advocacy, he is committed to empowering underrepresented groups, bridging the tech skills gap, and promoting opportunities for women in technology.
+                    </span>
+                </p>
+                <button onclick="toggleText('dots1', 'more1', this)">Read More</button>
+            </div>
+            <div class="team-member">
+                <img src="image/Co-founder.jpg" alt="Dr. Mustapha Photo">
+                <h3>Dr. Mustapha Lawal</h3>
+                <p>Co-Founder & CTO</p>
+                <p>
+                    Dr. Mustapha is a tech innovator and advocate for women in technology. 
+                    <span class="dots" id="dots2">...</span>
+                    <span class="more-text" id="more2" style="display: none;">
+                        Cultivating a journey from the foundational steps of my education at Hauwa Memorial Primary School, I have evolved into a seasoned professional in the realm of Computer Science. With a Ph.D. in Computer Science, specializing in Artificial Intelligence, from Abubakar Tafawa Balewa University, I have honed my expertise through years of dedicated academic pursuit. My academic odyssey commenced with a B.Sc. in Computer Science from Bayero University, Kano, where I graduated with Second Class Honours (Upper Division). Subsequently, I furthered my studies with an M.Sc. in Computer Science, specializing in Artificial Intelligence, achieving Second Class Honours (Upper Division) from the esteemed Abubakar Tafawa Balewa University.
+                        <br><br>
+                        In tandem with my academic endeavors, my professional journey is characterized by a commitment to excellence and innovation. From my pivotal roles as a Reviewer for prestigious conferences and journals to my contributions at esteemed institutions like the National Space Research and Development Agency, I have continually strived to push the boundaries of knowledge in Computer Science. With a particular focus on Cryptography and Network Security Analysis, my expertise extends beyond academia to nurturing the next generation of computer scientists as demonstrated during my tenure at Arewa Model Private School.
+                    </span>
+                </p>
+                <button onclick="toggleText('dots2', 'more2', this)">Read More</button>
+            </div>
+        </div>
+        
+            
+            <div class="team-member">
+                <img src="https://via.placeholder.com/100" alt="Member Photo">
+                <h3>XXX</h3>
+                <p>Community Outreach Lead</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Projects Section -->
+    <section id="projects">
+        <h2>Our Projects</h2>
+        <div class="projects">
+            <div class="project">
+                <h3>Tech4All</h3>
+                <p>Providing free coding bootcamps for underprivileged youth to unlock their potential in the tech industry.</p>
+            </div>
+            <div class="project">
+                <h3>Digital Bridges</h3>
+                <p>Setting up computer labs in rural schools and training teachers in digital literacy.</p>
+            </div>
+            <div class="project">
+                <h3>Code for Climate</h3>
+                <p>Using data science and technology to address local climate challenges and empower sustainable practices.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donate Section -->
+    <section id="donate" class="donate-section">
+        <h2>Support Our Mission</h2>
+        <p>Your donation helps us bring technology and opportunities to communities that need it the most. Join us in making a difference!</p>
+        <button onclick="window.location.href='#'">Donate Now</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 Coded Foundation for Technology Development |
+        <a href="#about-us">About Us</a> | 
+        <a href="mailto:info@codedfoundation.org">Contact Us</a>
+    </footer>
+
+    <script>
+        function toggleText(dotsId, moreTextId, btn) {
+            const dots = document.getElementById(dotsId);
+            const moreText = document.getElementById(moreTextId);
+    
+            if (dots.style.display === "none") {
+                dots.style.display = "inline";
+                moreText.style.display = "none";
+                btn.innerText = "Read More";
+            } else {
+                dots.style.display = "none";
+                moreText.style.display = "inline";
+                btn.innerText = "Read Less";
+            }
+        }
+    </script>
+
+<script>
+    const missionText =
+        "To empower individuals and communities across Africa through technology education, innovation, and entrepreneurship, fostering a culture of digital literacy and equipping the next generation with the skills and opportunities to thrive in the digital age.";
+
+    const visionText =
+        "Our vision is to be a catalyst for sustainable development and inclusive growth in Africa, leveraging technology as a force for positive change. We aspire to create a vibrant ecosystem of tech talent, resources, and opportunities, driving innovation, economic empowerment, and social transformation across the continent.";
+
+    const typeEffect = (elementId, text, delay = 50, callback) => {
+        const element = document.getElementById(elementId);
+        let index = 0;
+
+        const type = () => {
+            if (index < text.length) {
+                element.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(type, delay);
+            } else if (callback) {
+                callback();
+            }
+        };
+
+        type();
+    };
+
+    document.addEventListener("DOMContentLoaded", () => {
+        typeEffect("mission-text", missionText, 50, () => {
+            typeEffect("vision-text", visionText, 50);
+        });
+    });
+</script>
+
+
+    <script>
+        const canvas = document.getElementById('backgroundCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particlesArray = [];
+        const colors = ['#ff6b6b', '#6bc6ff', '#ffe66b', '#6bff94'];
+
+        class Particle {
+            constructor(x, y, size, color) {
+                this.x = x;
+                this.y = y;
+                this.size = size;
+                this.color = color;
+                this.speedX = Math.random() * 3 - 1.5;
+                this.speedY = Math.random() * 3 - 1.5;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+            }
+        }
+
+        function init() {
+            particlesArray = [];
+            for (let i = 0; i < 100; i++) {
+                const size = Math.random() * 5 + 2;
+                const x = Math.random() * canvas.width;
+                const y = Math.random() * canvas.height;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                particlesArray.push(new Particle(x, y, size, color));
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particlesArray.forEach((particle) => {
+                particle.update();
+                particle.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            init();
+        });
+
+        init();
+        animate();
+    </script>
+</body>
+</html>
